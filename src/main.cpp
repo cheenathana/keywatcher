@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <string>
 
-#include "keywatcher.h"
+#include "include/keywatcher.h"
 
 int main() {
 //  MSG msg;
@@ -24,15 +24,16 @@ int main() {
   std::cout << z.get_datetime() << std::endl;
   std::cout << y.get_datetime() << std::endl;
 
+  std::cout << "Dated filename: " << x.get_dated_filename() << std::endl;
 
-  std::string path = keywatcher::get_apps_root_path();
+
+  std::string path = keywatcher::fetch_apps_root_path();
   std::cout << "Apps base path: " << path << std::endl;
 
-  // validate path and create it
-  if (keywatcher::validate_apps_root_path(path))
-    std::cout << "Path successfully created or exists" << std::endl;
-  else
-    std::cout << "Problem in path creating" << std::endl;
+  // Writing logs
+  keywatcher::log("Hello writing to log file.");
+
+
 
 
 
