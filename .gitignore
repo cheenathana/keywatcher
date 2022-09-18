@@ -1,0 +1,5 @@
+# Ignoring Codeblock files and Build files
+keywatcher.cbp
+keywatcher.layout
+bin/
+obj/
