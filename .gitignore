@@ -1,5 +1,6 @@
 # Ignoring Codeblock files and Build files
 keywatcher.cbp
 keywatcher.layout
+keywatcher.depend
 bin/
 obj/

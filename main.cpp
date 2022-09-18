@@ -2,7 +2,14 @@
 #include <windows.h>
 
 int main() {
-  std::cout << "Hello World";
+  MSG msg;
 
+  while (GetMessage(&msg, NULL, 0, 0)) {
+    // converts virtual keys to character input message
+    TranslateMessage(&msg);
+
+    // dispatches a message to a window procedure
+    DispatchMessage(&msg);
+  }
   return 0;
 }
