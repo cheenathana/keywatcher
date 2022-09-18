@@ -1,4 +1,5 @@
 #include <ctime>
+#include <iostream>
 #include <string>
 #include <sstream>
 #include <fstream>
@@ -18,6 +19,6 @@ std::string keywatcher::to_string(const T& value) {
 void keywatcher::write_to_log(const std::string& s) {
   std::ofstream file("keywatcher.log", std::ios::app);     // opening file in append mode
 
-  file << "[" << "TIMESTAMP" << "] " << s << std::endl;
+  file << "[" << keywatcher::datetime().get_datetime() << "] " << s << std::endl;
   file.close();
 }

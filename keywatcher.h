@@ -14,6 +14,8 @@ namespace keywatcher {
 
 
   struct datetime {
+    int sec, minu, hour, date, mon, year;
+
     // constructor for struct (allowed only in c++)
     datetime() {
       time_t ms;
@@ -21,13 +23,34 @@ namespace keywatcher {
 
       struct tm* dt = localtime(&ms);
 
-      auto sec = dt->tm_sec;
-      auto minu = dt->tm_min;
-      auto hour = dt->tm_hour;
-      auto date = dt->tm_mday;
-      auto mon = dt->tm_mon + 1;
-      auto year = 1900 + dt->tm_year;
+      sec = dt->tm_sec;
+      minu = dt->tm_min;
+      hour = dt->tm_hour;
+      date = dt->tm_mday;
+      mon = dt->tm_mon + 1;
+      year = 1900 + dt->tm_year;
+    }
 
+    std::string now() {
+      return datetime().get_datetime();
+    }
+
+    std::string get_date() {
+      // formatting date to DD:MM:YY
+      return std::string(date < 10 ? "0":"") + to_string(date) + ":" +
+             std::string(mon < 10 ? "0":"") + to_string(mon) + ":" +
+             to_string(year);
+    }
+
+    std::string get_time() {
+      // formatting time to HH:MM:YY
+      return std::string(sec < 10 ? "0":"") + to_string(sec) + ":" +
+             std::string(minu < 10 ? "0":"") + to_string(minu) + ":" +
+             std::string(hour < 10 ? "0":"") + to_string(hour);
+    }
+
+    std::string get_datetime() {
+      return get_time() + " " + get_date();
     }
   };
 
