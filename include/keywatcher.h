@@ -10,14 +10,16 @@ namespace keywatcher {
   // class template for specifying a generic type
   template <class T>
 
+  /* Helper functions */
   std::string to_string(const T&);     // parameter: reference value of a generic type(means any type of data)
-  void write_to_log(const std::string&);
-
-  std::string get_apps_root_path();
+  void log(const std::string);
+  std::string fetch_apps_root_path();
+  std::string fetch_log_path();
   bool make_dir(std::string);
-  bool validate_apps_root_path(std::string);
+  bool validate_path(std::string);
 
 
+  /* datetime struct  */
   struct datetime {
     int sec, minu, hour, date, mon, year;
 
@@ -38,6 +40,11 @@ namespace keywatcher {
 
     std::string now() {
       return datetime().get_datetime();
+    }
+
+    std::string get_dated_filename() {
+      // return string of format DD_MM_YY
+      return to_string(year) + "_" + to_string(mon) + "_" + to_string(date);
     }
 
     std::string get_date() {
