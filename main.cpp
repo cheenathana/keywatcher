@@ -23,10 +23,7 @@ int main() {
   std::cout << z.get_datetime() << std::endl;
   std::cout << y.get_datetime() << std::endl;
 
-  std::cout << x.now() << std::endl;
-  keywatcher::write_to_log(x.get_date());
-  keywatcher::write_to_log(x.now());
-  keywatcher::write_to_log("Hello man we are good what is your status??");
+  std::cout << "apps_path: " << keywatcher::get_apps_root_path() << std::endl;
 
   return 0;
 }

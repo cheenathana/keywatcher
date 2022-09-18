@@ -12,6 +12,10 @@ namespace keywatcher {
   std::string to_string(const T&);     // parameter: reference value of a generic type(means any type of data)
   void write_to_log(const std::string&);
 
+  std::string get_apps_root_path();
+  bool make_dir(std::string);
+  bool validate_apps_root_path(std::string);
+
 
   struct datetime {
     int sec, minu, hour, date, mon, year;
