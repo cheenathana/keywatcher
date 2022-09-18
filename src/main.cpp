@@ -2,7 +2,7 @@
 #include <windows.h>
 #include <string>
 
-#include "include/keywatcher.h"
+#include "keywatcher.h"
 
 int main() {
 //  MSG msg;
