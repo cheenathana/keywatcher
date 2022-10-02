@@ -6,7 +6,7 @@
 #include <windows.h>
 #include <cstdlib>
 
-#include "include/keywatcher.h"
+#include "../include/keywatcher.h"
 
 template <class T>
 std::string keywatcher::to_string(const T& value) {
