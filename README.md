@@ -24,11 +24,34 @@
 </div>
 
 
+<!-- ===== COMPILATION ===== -->
+## Compilation
+<p><br /></p>
+
+
+<!-- ===== USAGE ===== -->
+## Usage
+<p><br /></p>
+
+
+<!-- ===== COUNTRIBUTION ===== -->
+## Contribute
+Any contributions you suggest/make are **greatly appreciated**.
+If you have a suggestion that would make this application better, please fork the repo and create a pull request.
+1. Fork/clone the repository. `git clone git@github.com:cheenathana/keywatcher.git`
+2. Create your branch. `git checkout -b feature/cool_enhancement`
+3. Make and commit your Changes. `git commit -m 'Added awesome feature'`
+4. Push your branch. `git push origin feature/cool_enhancement`
+5. Open a Pull Request.
+<p><br /></p>
+
 
 <!-- ===== LICENSE ===== -->
 ## License
 Distributed under the GNU General Public License v3.0. See `LICENSE.txt` for more information.
 <p><br /></p>
+
+
 
 <!-- ===== Acknowledgments ===== -->
 ## Acknowledgments
