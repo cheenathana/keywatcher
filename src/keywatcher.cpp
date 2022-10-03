@@ -86,6 +86,3 @@ void keywatcher::log(const std::string s) {
     return;
   }
 }
-
-// wqeirjqiwewe rweirwei
-// Ok will it works

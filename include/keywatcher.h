@@ -13,6 +13,7 @@ namespace keywatcher {
   /* Helper functions */
   std::string to_string(const T&);     // parameter: reference value of a generic type(means any type of data)
   void log(const std::string);
+
   std::string fetch_apps_root_path();
   std::string fetch_log_path();
   bool make_dir(std::string);
