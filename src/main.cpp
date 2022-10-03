@@ -7,6 +7,7 @@
 int main() {
   MSG msg;
 
+  /* Below loop block prevent opening of a terminal/window */
   while (GetMessage(&msg, NULL, 0, 0)) {
     // converts virtual keys to character input message
     TranslateMessage(&msg);

