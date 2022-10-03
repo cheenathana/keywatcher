@@ -2,7 +2,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/cheenathana/keywatcher">
-    <img src="assets/logo.png" alt="Logo" width="80" height="80">
+    <img src="assets/logo.png" alt="Logo" width="230" height="200">
   </a>
 
   <h3 align="center">KEYWATCHER</h3>
