@@ -30,6 +30,6 @@
 Distributed under the GNU General Public License v3.0. See `LICENSE.txt` for more information.
 <p><br /></p>
 
-<!-- ===== Reference ===== -->
-## Reference
-- Logo: https://www.flaticon.com
+<!-- ===== Acknowledgments ===== -->
+## Acknowledgments
+* [Logo](https://www.flaticon.com)
