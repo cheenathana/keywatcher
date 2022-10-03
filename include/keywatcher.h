@@ -5,8 +5,10 @@
 #include <string>
 #include <sstream>
 
+#include "windows.h"
 
-namespace keywatcher {
+// Namespace for Keywatcher application
+namespace kw {
   // class template for specifying a generic type
   template <class T>
 

