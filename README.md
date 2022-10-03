@@ -9,7 +9,6 @@
   <p align="center">An advanced keylogger application</p>
 
   <p align="center">
-    <br />
     <a href="https://github.com/cheenathana/keywatcher">View Demo</a>
     ·
     <a href="https://github.com/cheenathana/keywatcher/issues">Report Bug</a>
