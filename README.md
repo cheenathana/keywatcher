@@ -7,8 +7,14 @@
 
   <h3 align="center">KEYWATCHER</h3>
   <p align="center">An advanced keylogger application</p>
-
-  <p align="center">
+  
+  <!-- ===== SHIELDS SECTION ===== -->
+  <img alt="Compiler" src="https://img.shields.io/badge/g%2B%2B-12.2.1-yellow">
+  <img alt="GitHub repo file count" src="https://img.shields.io/github/directory-file-count/cheenathana/keywatcher">
+  <img alt="Platform" src="https://img.shields.io/badge/platform-windows-lightgrey">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/cheenathana/keywatcher">
+  
+  <p>
     <a href="https://github.com/cheenathana/keywatcher">View Demo</a>
     ·
     <a href="https://github.com/cheenathana/keywatcher/issues">Report Bug</a>
